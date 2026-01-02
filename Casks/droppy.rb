@@ -1,6 +1,6 @@
 cask "droppy" do
-  version "1.2.4"
-  sha256 "ecd4956a7264a7c9e160fa8f482ba93413d4dd0797a485b5926e27214f110fff"
+  version "1.2.5"
+  sha256 "421fadf0dab15c66a04eff6d966dea9ed84164be0fa4aaeb728349dda1908cca"
 
   url "https://raw.githubusercontent.com/iordv/Droppy/main/Droppy.dmg"
   name "Droppy"
