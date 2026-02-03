@@ -1,34 +1,20 @@
 cask "droppy" do
   version "10.2.4"
-  sha256 "97d0722edc10ee718855134a970681b90cf39ff7da3c15be1a5bb718a251c5e4"
+  sha256 "def5ca1bd4a1d6b6efe6d76e3b0af1d3f3e6da2dcf5c6c3c1afc5be1c6969879"
 
-  url "https://github.com/iordv/Droppy/releases/download/v10.2.4/Droppy-10.2.4.dmg"
+  url "https://github.com/iordv/Droppy/releases/download/v#{version}/Droppy-#{version}.dmg"
   name "Droppy"
-  desc "Drag and drop file shelf for macOS"
-  homepage "https://github.com/iordv/Droppy"
+  desc "Your Mac's notch made powerful"
+  homepage "https://getdroppy.com"
+
+  auto_updates true
+  depends_on macos: ">= :ventura"
 
   app "Droppy.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-      args: ["-rd", "com.apple.quarantine", "#{appdir}/Droppy.app"],
-      sudo: false
-  end
-
-  caveats <<~EOS
-    ____                             
-   / __ \_________  ____  ____  __  __
-  / / / / ___/ __ \/ __ \/ __ \/ / / /
- / /_/ / /  / /_/ / /_/ / /_/ / /_/ / 
-/_____/_/   \____/ .___/ .___/\__, /  
-                /_/   /_/    /____/   
-
-    Thank you for installing Droppy! 
-    The ultimate drag-and-drop file shelf for macOS.
-  EOS
-
   zap trash: [
     "~/Library/Application Support/Droppy",
+    "~/Library/Caches/iordv.Droppy",
     "~/Library/Preferences/iordv.Droppy.plist",
   ]
 end
